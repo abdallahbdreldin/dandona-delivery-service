@@ -6,6 +6,10 @@ import Testimonials from "@/components/landing/Testimonials";
 import Contact from "@/components/landing/Contact";
 import Footer from "@/components/landing/Footer";
 import { Helmet } from "react-helmet-async";
+import Captions from "@/components/landing/Captions";
+import AboutExtended from "@/components/landing/AboutExtended";
+import Clients from "@/components/landing/Clients";
+import Gallery from "@/components/landing/Gallery";
 
 const Index = () => {
   const siteUrl = "/";
@@ -48,7 +52,11 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        <Captions />
         <Services />
+        <AboutExtended />
+        <Clients />
+        <Gallery />
         <HowItWorks />
         <Testimonials />
         <Contact />
