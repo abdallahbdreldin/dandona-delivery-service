@@ -1,13 +1,60 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/landing/Navbar";
+import Hero from "@/components/landing/Hero";
+import Services from "@/components/landing/Services";
+import HowItWorks from "@/components/landing/HowItWorks";
+import Testimonials from "@/components/landing/Testimonials";
+import Contact from "@/components/landing/Contact";
+import Footer from "@/components/landing/Footer";
+import { Helmet } from "react-helmet-async";
 
 const Index = () => {
+  const siteUrl = "/";
+  const description =
+    "Dandona Delivery Services: fast, secure, reliable deliveries with real‑time tracking and 24/7 support.";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Dandona Delivery Services",
+    url: siteUrl,
+    sameAs: [],
+    logo: "/favicon.ico",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "City",
+      addressCountry: "Country",
+    },
+    makesOffer: {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Courier & Same‑Day Delivery",
+        areaServed: "Local",
+      },
+    },
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      <Helmet>
+        <title>Dandona Delivery Services — Fast, Secure Delivery</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={siteUrl} />
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+      </Helmet>
+
+      <Navbar />
+      <main>
+        <Hero />
+        <Services />
+        <HowItWorks />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 };
 
